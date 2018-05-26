@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KickerUp</string>
+
+    <!-- Auth Screen -->
+    <string name="screen_auth_title">Привет!</string>
+    <string name="screen_auth_name">имя</string>
+    <string name="screen_auth_password">Пароль</string>
+</resources>

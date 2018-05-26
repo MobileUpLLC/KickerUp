@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App color scheme -->
+    <color name="primary">#ffffff</color>
+    <color name="primary_dark">#ffffff</color>
+    <color name="app_accent">#000000</color>
+    <color name="accent">#03dac4</color>
+    <color name="text_color_primary">@color/black</color>
+    <color name="text_color_secondary">@color/black_translucent_54</color>
+    <color name="text_color_red">#dc2121</color>
+
+    <color name="splash_background">@color/primary</color>
+
+    <color name="window_background">#fafafa</color>
+
+    <!-- Common black and white colors -->
+    <color name="white">#ffffff</color>
+    <color name="white_translucent_70">#80ffffff</color>
+    <color name="white_translucent_50">#B3ffffff</color>
+    <color name="white_translucent_38">#61ffffff</color>
+    <color name="white_translucent_12">#1Fffffff</color>
+
+    <color name="black">#000000</color>
+    <color name="black_translucent_87">#DE000000</color>
+    <color name="black_translucent_54">#8A000000</color>
+    <color name="black_translucent_38">#61000000</color>
+    <color name="black_translucent_20">#33000000</color>
+    <color name="black_translucent_15">#26000000</color>
+    <color name="black_translucent_12">#1F000000</color>
+</resources>

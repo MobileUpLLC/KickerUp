@@ -1,0 +1,96 @@
+<resources>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:background">@null</item>
+
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/app_accent</item>
+
+        <item name="android:textColorPrimary">@color/text_color_primary</item>
+        <item name="android:textColorSecondary">@color/text_color_secondary</item>
+
+        <!-- To set the right font -->
+        <item name="alertDialogTheme">@style/DialogTheme</item>
+
+        <!-- TextView textAppearance used by default -->
+        <item name="android:textAppearanceSmall">@style/Text</item>
+        <item name="android:statusBarColor">@color/black_translucent_20</item>
+
+        <!-- New MaterialComponents attributes. -->
+        <item name="colorPrimaryLight">?attr/colorPrimary</item>
+        <item name="colorSecondary">?attr/colorPrimary</item>
+        <item name="colorSecondaryLight">?attr/colorPrimaryLight</item>
+        <item name="colorSecondaryDark">?attr/colorPrimaryDark</item>
+        <item name="scrimBackground">@color/mtrl_scrim_color</item>
+    </style>
+
+    <!-- Dialog theme -->
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowTitleStyle">@style/DialogWindowTitle</item>
+        <item name="colorAccent">@color/app_accent</item>
+        <item name="android:textAppearanceButton">@style/DialogButtonText</item>
+    </style>
+
+    <style name="DialogButtonText" parent="TextAppearance.AppCompat.Button">
+        <item name="fontPath">@string/font_main_medium</item>
+    </style>
+
+    <style name="DialogWindowTitle" parent="RtlOverlay.DialogWindowTitle.AppCompat">
+        <item name="android:textAppearance">@style/DialogTitle</item>
+    </style>
+
+    <style name="DialogTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="fontPath">@string/font_main_medium</item>
+    </style>
+
+    <!-- Toolbar theme overlay to set the right font -->
+    <style name="ToolbarThemeOverlay" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="fontPath">@string/font_main_medium</item>
+    </style>
+
+    <!-- Text appearances (Naming: size/style first, then color) -->
+
+    <style name="Text" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="fontPath">@string/font_main_regular</item>
+    </style>
+
+    <style name="Text.Secondary">
+        <item name="android:textColor">@color/text_color_secondary</item>
+    </style>
+
+    <style name="Text.Big">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Big.Secondary">
+        <item name="android:textColor">@color/text_color_secondary</item>
+    </style>
+
+    <style name="Text.Medium">
+        <item name="fontPath">@string/font_main_medium</item>
+    </style>
+
+    <style name="Text.Medium.Secondary">
+        <item name="fontPath">@string/font_main_medium</item>
+    </style>
+
+    <style name="Text.Colored">
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="Text.Black">
+        <item name="fontPath">@string/font_main_black</item>
+    </style>
+
+    <style name="Text.Black.Title">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
