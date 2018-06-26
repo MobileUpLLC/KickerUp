@@ -43,7 +43,7 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
 
         when(message) {
             is Back -> back()
-            is ShowAuthScreen -> navTo(AuthScreen())
+            is ShowAuthScreen -> setPrimary(AuthScreen())
             is ShowSplashScreen -> setPrimary(SplashScreen())
         }
 
