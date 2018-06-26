@@ -9,13 +9,17 @@ class SplashPm: ScreenPm() {
     val startTextAnimation = Command<Unit>()
     val animationCanceled = Action<Unit>()
 
+    override fun onBind() {
+        super.onBind()
+
+        startTextAnimation.consumer.accept(Unit)
+    }
+
     override fun onCreate() {
         super.onCreate()
 
         animationCanceled.observable
             .subscribe { sendNavigationMessage(ShowAuthScreen()) }
             .untilDestroy()
-
-        startTextAnimation.consumer.accept(Unit)
     }
 }

@@ -9,15 +9,23 @@ interface RhombusController {
     /**
      * Первичная координата состояния
      */
-    val rhombusX: Int
+    val rhombusX: Float
 
     /**
      * Первичная координата состояния
      */
-    val rhombusY: Int
+    val rhombusY: Float
+
+    /**
+     * Время анимации перехода. Стандартная реализация равна 300 мс
+     */
+    val duration: Long
+        get() = 300L
 
     /**
      * Вызов события изменения состояния
      */
-    fun setOnRombusUpdater(updater: (x: Int, y: Int) -> Unit)
+    fun setOnRombusUpdater(updater: (x: Int, y: Int) -> Unit) = {
+        // do nothing
+    }
 }

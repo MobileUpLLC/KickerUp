@@ -9,10 +9,11 @@
 
     <ImageView
         android:id="@+id/rhombus"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
         android:src="@drawable/rhombus"
-        android:scaleType="center"
+        android:padding="100dp"
+        android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 

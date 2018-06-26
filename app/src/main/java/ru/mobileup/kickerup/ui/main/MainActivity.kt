@@ -3,12 +3,14 @@ package ru.mobileup.kickerup.ui.main
 import android.os.Bundle
 import android.view.View
 import com.bluelinelabs.conductor.Controller
+import kotlinx.android.synthetic.main.activity_main.*
 import me.dmdev.rxpm.navigation.NavigationMessage
 import me.dmdev.rxpm.navigation.NavigationMessageHandler
 import org.koin.standalone.StandAloneContext
 import ru.mobileup.kickerup.R
 import ru.mobileup.kickerup.extension.back
 import ru.mobileup.kickerup.extension.goTo
+import ru.mobileup.kickerup.extension.last
 import ru.mobileup.kickerup.extension.setRoot
 import ru.mobileup.kickerup.ui.Back
 import ru.mobileup.kickerup.ui.ShowAuthScreen
@@ -43,8 +45,8 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
 
         when(message) {
             is Back -> back()
-            is ShowAuthScreen -> setPrimary(AuthScreen())
             is ShowSplashScreen -> setPrimary(SplashScreen())
+            is ShowAuthScreen -> setPrimary(AuthScreen())
         }
 
         return true
@@ -53,6 +55,9 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
     private fun back() {
         if (!router.back()) {
             finish()
+        } else {
+            if (router.last() is RhombusController)
+            attacheRhombusController(router.last() as RhombusController)
         }
     }
 
@@ -73,7 +78,10 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
     }
 
     private fun attacheRhombusController(rhombusController: RhombusController) {
-
+        rhombus.animate()
+            .translationX(rhombusController.rhombusX)
+            .translationY(rhombusController.rhombusY)
+            .start()
     }
 
 }
