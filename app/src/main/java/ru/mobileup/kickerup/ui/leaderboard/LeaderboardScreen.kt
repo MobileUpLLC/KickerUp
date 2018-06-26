@@ -14,9 +14,9 @@ class LeaderboardScreen: Screen<LeaderboardPm>(), RhombusController, BottomBarCo
 
     override val screenLayout: Int = R.layout.screen_leaderboard
 
-    override val rhombusX: Float = 530f
+    override val rhombusX: Float = 630f
 
-    override val rhombusY: Float = -600f
+    override val rhombusY: Float = -550f
 
     override fun providePresentationModel(): LeaderboardPm = StandAloneContext.koinContext.get()
 

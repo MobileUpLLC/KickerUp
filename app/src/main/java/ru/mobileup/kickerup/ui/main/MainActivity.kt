@@ -33,6 +33,9 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_leaderboard))
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_profile))
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
     }
@@ -43,7 +46,10 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
 
     override fun handleNavigationMessage(message: NavigationMessage): Boolean {
 
-        when(message) {
+        // hide keyboard
+        container.showKeyboard(false)
+
+        when (message) {
             is Back -> back()
             is ShowSplashScreen -> setPrimary(SplashScreen())
             is ShowAuthScreen -> setPrimary(AuthScreen())
@@ -58,7 +64,7 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
             finish()
         } else {
             if (router.last() is RhombusController)
-            attacheRhombusController(router.last() as RhombusController)
+                attacheRhombusController(router.last() as RhombusController)
         }
     }
 
@@ -110,10 +116,12 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
 
     private fun hideBottomBar() {
         bottomBar.visible(false)
+        tabLayout.visible(false)
         fab.hide()
     }
 
     private fun showBottomBar() {
+        tabLayout.visible(true)
         bottomBar.visible(true)
         fab.show()
     }
