@@ -8,16 +8,16 @@ import me.dmdev.rxpm.navigation.NavigationMessage
 import me.dmdev.rxpm.navigation.NavigationMessageHandler
 import org.koin.standalone.StandAloneContext
 import ru.mobileup.kickerup.R
-import ru.mobileup.kickerup.extension.back
-import ru.mobileup.kickerup.extension.goTo
-import ru.mobileup.kickerup.extension.last
-import ru.mobileup.kickerup.extension.setRoot
+import ru.mobileup.kickerup.extension.*
 import ru.mobileup.kickerup.ui.Back
 import ru.mobileup.kickerup.ui.ShowAuthScreen
+import ru.mobileup.kickerup.ui.ShowLeaderboardScreen
 import ru.mobileup.kickerup.ui.ShowSplashScreen
 import ru.mobileup.kickerup.ui.auth.AuthScreen
 import ru.mobileup.kickerup.ui.common.BasePmActivity
+import ru.mobileup.kickerup.ui.common.BottomBarController
 import ru.mobileup.kickerup.ui.common.RhombusController
+import ru.mobileup.kickerup.ui.leaderboard.LeaderboardScreen
 import ru.mobileup.kickerup.ui.splash.SplashScreen
 
 class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
@@ -47,6 +47,7 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
             is Back -> back()
             is ShowSplashScreen -> setPrimary(SplashScreen())
             is ShowAuthScreen -> setPrimary(AuthScreen())
+            is ShowLeaderboardScreen -> setPrimary(LeaderboardScreen())
         }
 
         return true
@@ -67,6 +68,13 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
         if (screen is RhombusController) {
             attacheRhombusController(screen)
         }
+        if (screen is BottomBarController) {
+            showBottomBar()
+            attacheBottomBar(screen)
+        } else {
+            hideBottomBar()
+            detachBottomBar()
+        }
     }
 
     private fun navTo(screen: Controller) {
@@ -75,6 +83,13 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
         if (screen is RhombusController) {
             attacheRhombusController(screen)
         }
+        if (screen is BottomBarController) {
+            showBottomBar()
+            attacheBottomBar(screen)
+        } else {
+            hideBottomBar()
+            detachBottomBar()
+        }
     }
 
     private fun attacheRhombusController(rhombusController: RhombusController) {
@@ -82,6 +97,25 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
             .translationX(rhombusController.rhombusX)
             .translationY(rhombusController.rhombusY)
             .start()
+    }
+
+    private fun attacheBottomBar(bottomBarController: BottomBarController) {
+        bottomBar.fabAlignmentMode = bottomBarController.fabAlignmentMode
+        fab.setOnClickListener { bottomBarController.onFubClickListener().invoke() }
+    }
+
+    private fun detachBottomBar() {
+        fab.setOnClickListener(null)
+    }
+
+    private fun hideBottomBar() {
+        bottomBar.visible(false)
+        fab.hide()
+    }
+
+    private fun showBottomBar() {
+        bottomBar.visible(true)
+        fab.show()
     }
 
 }

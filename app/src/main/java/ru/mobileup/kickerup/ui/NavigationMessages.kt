@@ -10,3 +10,7 @@ class ShowAuthScreen: NavigationMessage
 class ShowSplashScreen: NavigationMessage
 
 class ShowMainScreen: NavigationMessage
+
+class ShowLeaderboardScreen: NavigationMessage
+
+class ShowProfileScreen: NavigationMessage
