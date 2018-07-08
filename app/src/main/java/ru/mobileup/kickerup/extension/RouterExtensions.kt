@@ -4,7 +4,6 @@ import com.bluelinelabs.conductor.Controller
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
-import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import ru.mobileup.kickerup.ui.common.DialogController
 
 /**
@@ -30,8 +29,8 @@ fun Router.setRoot(screen: Controller, withAnimation: Boolean = false) {
             RouterTransaction.with(screen)
                 .apply {
                     if (withAnimation) {
-                        popChangeHandler(HorizontalChangeHandler())
-                        pushChangeHandler(HorizontalChangeHandler())
+                        popChangeHandler(FadeChangeHandler())
+                        pushChangeHandler(FadeChangeHandler())
                     }
                 }
                 .tag(screen::class.java.name)

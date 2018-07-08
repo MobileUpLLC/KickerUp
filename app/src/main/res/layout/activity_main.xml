@@ -3,9 +3,53 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.MainActivity">
+
+    <ImageView
+        android:id="@+id/rhombus"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_gravity="center"
+        android:padding="100dp"
+        android:src="@drawable/rhombus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <android.support.design.bottomappbar.BottomAppBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        app:backgroundTint="@color/black"
+        android:elevation="6dp"
+        app:fabAlignmentMode="center"
+        app:fabAttached="true"
+        app:fabCradleMargin="5dp">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tabIndicatorColor="@color/accent"
+            app:tabIconTint="@color/white"/>
+    </android.support.design.bottomappbar.BottomAppBar>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_forward"
+        android:visibility="gone"
+        app:backgroundTint="@color/accent"
+        android:elevation="10dp"
+        app:layout_anchor="@id/bottomBar"/>
 
 </android.support.design.widget.CoordinatorLayout>

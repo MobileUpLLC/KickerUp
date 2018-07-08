@@ -5,4 +5,6 @@
     <string name="screen_auth_title">Привет!</string>
     <string name="screen_auth_name">имя</string>
     <string name="screen_auth_password">Пароль</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="profile">Profile</string>
 </resources>
