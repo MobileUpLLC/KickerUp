@@ -20,12 +20,13 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_behavior="behavior"/>
 
     <android.support.design.bottomappbar.BottomAppBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="@dimen/bottom_app_bar_height"
         android:layout_gravity="bottom"
         android:visibility="gone"
         app:backgroundTint="@color/black"
