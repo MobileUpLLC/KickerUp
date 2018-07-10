@@ -16,6 +16,6 @@ class UiModule: AndroidModule() {
         provideFactory { AuthPm() }
         provideFactory { SplashPm() }
         provideFactory { LeaderboardPm(get()) }
-        provideFactory { ProfilePm() }
+        provideFactory { ProfilePm(get(), get()) }
     }
 }

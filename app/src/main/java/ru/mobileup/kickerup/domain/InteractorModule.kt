@@ -8,5 +8,7 @@ class InteractorModule : AndroidModule() {
 
     override fun context(): Context = applicationContext {
         provideFactory { GetLeaderboardInteractor() }
+        provideFactory { GetCurrentUserInteractor() }
+        provideFactory { GetGamesByUserInteractor() }
     }
 }

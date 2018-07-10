@@ -1,5 +1,6 @@
 package ru.mobileup.kickerup.domain
 
+import io.reactivex.Single
 import ru.mobileup.kickerup.domain.dto.Game
 import ru.mobileup.kickerup.domain.dto.User
 import java.util.*
@@ -7,7 +8,7 @@ import java.util.*
 
 class GetGamesByUserInteractor {
 
-    fun execute(user: User? = null) = (0..13).map {
+    fun execute(user: User? = null) = Single.just((0..13).map {
         Game(
                 0,
                 emptyList(),
@@ -24,5 +25,5 @@ class GetGamesByUserInteractor {
                 Date(),
                 Game.Status.ENDED
         )
-    }
+    })
 }
