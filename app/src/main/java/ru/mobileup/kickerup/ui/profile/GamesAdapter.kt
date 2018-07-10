@@ -23,7 +23,7 @@ class GamesAdapter : BaseListAdapter<Game, GamesAdapter.ViewHolder>() {
         override fun bind(item: Game) {
             itemView.goalsText.text = itemView.resources.getString(R.string.common_goals, item.totalFirstCommandGoals, item.totalSecondCommandGoals)
 
-            val color = if (adapterPosition <= ACCENT_GAMES_COUNT) {
+            val color = if (adapterPosition < ACCENT_GAMES_COUNT) {
                 itemView.resources.getColor(R.color.text_color_primary)
             } else {
                 itemView.resources.getColor(R.color.black_translucent_54)
