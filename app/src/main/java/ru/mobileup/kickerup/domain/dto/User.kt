@@ -6,5 +6,8 @@ package ru.mobileup.kickerup.domain.dto
  */
 data class User(
     val id: Long,
-    val name: String
+    val name: String,
+    val goals: Int,
+    val games: Int,
+    val points: Int
 )
