@@ -7,6 +7,6 @@ import org.koin.dsl.context.Context
 class InteractorModule : AndroidModule() {
 
     override fun context(): Context = applicationContext {
-        // TODO: provide interactors
+        provideFactory { GetLeaderboardInteractor() }
     }
 }
