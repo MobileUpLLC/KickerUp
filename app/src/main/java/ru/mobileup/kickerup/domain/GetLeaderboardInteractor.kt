@@ -16,7 +16,7 @@ class GetLeaderboardInteractor {
                         "Вася $it",
                         0,
                         0,
-                        0
+                        12.5F
                 )
             }
     )
