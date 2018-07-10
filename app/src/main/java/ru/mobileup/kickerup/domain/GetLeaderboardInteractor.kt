@@ -13,7 +13,10 @@ class GetLeaderboardInteractor {
             (0..15).map {
                 User(
                         it.toLong(),
-                        "Вася $it"
+                        "Вася $it",
+                        0,
+                        0,
+                        0
                 )
             }
     )
