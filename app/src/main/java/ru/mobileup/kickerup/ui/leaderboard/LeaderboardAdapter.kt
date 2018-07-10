@@ -39,6 +39,7 @@ class LeaderboardAdapter(
         override fun bind(item: User) {
             this.user = item
             itemView.nameText.text = item.name
+            itemView.pointsText.text = item.points.toString()
 
             when (adapterPosition) {
                 FIRST_RATING -> showIcon(R.drawable.ic_star)

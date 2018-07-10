@@ -1,10 +1,21 @@
 <resources>
     <string name="app_name">KickerUp</string>
 
+    <!-- Common -->
+    <string name="common_log_out">Log out</string>
+    <string name="common_goals">%1$d:%2$d</string>
+
     <!-- Auth Screen -->
     <string name="screen_auth_title">Привет!</string>
     <string name="screen_auth_name">имя</string>
     <string name="screen_auth_password">Пароль</string>
+
+    <!-- Leaderboard screen -->
     <string name="leaderboard">Leaderboard</string>
+
+    <!-- Profile screen -->
     <string name="profile">Profile</string>
+    <string name="profile_points">Баллов</string>
+    <string name="profile_games">Игр</string>
+    <string name="profile_goals">Голов</string>
 </resources>
