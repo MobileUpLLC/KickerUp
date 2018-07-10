@@ -2,83 +2,86 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <include layout="@layout/toolbar"/>
-    
+
     <TextView
         android:id="@+id/pointsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="12.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:layout_marginStart="@dimen/normal_gap"
         android:layout_marginTop="22dp"
         android:textSize="64sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:text="12.3"/>
 
     <TextView
         android:id="@+id/pointsDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/pointsText"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/normal_gap"
+        android:text="@string/profile_points"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Баллов"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pointsText"/>
 
     <TextView
         android:id="@+id/gamesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pointsDescription"
         android:layout_marginStart="@dimen/normal_gap"
         android:layout_marginTop="30dp"
         android:textSize="34sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointsDescription"
+        tools:text="32"/>
 
     <TextView
         android:id="@+id/gamesDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/gamesText"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/normal_gap"
+        android:text="@string/profile_games"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Игр"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gamesText"/>
 
     <TextView
         android:id="@+id/goalsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="115"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gamesDescription"
         android:layout_marginStart="@dimen/normal_gap"
         android:layout_marginTop="30dp"
         android:textSize="34sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gamesDescription"
+        tools:text="115"/>
 
     <TextView
         android:id="@+id/goalsDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/goalsText"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/normal_gap"
+        android:text="@string/profile_goals"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:text="Голов"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goalsText"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/gamesRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 </android.support.constraint.ConstraintLayout>
