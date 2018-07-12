@@ -22,6 +22,8 @@ class ProfileScreen : Screen<ProfilePm>(), RhombusController, BottomBarControlle
 
     private val gamesAdapter = GamesAdapter()
 
+    override val showTabs: Boolean = true
+
     override fun providePresentationModel(): ProfilePm = StandAloneContext.koinContext.get()
 
     override fun onInitView(view: View, savedViewState: Bundle?) {
@@ -52,5 +54,9 @@ class ProfileScreen : Screen<ProfilePm>(), RhombusController, BottomBarControlle
             view.toolbar.title = user.name
         }
         pm.games.observable bindTo { gamesAdapter.setItems(it) }
+    }
+
+    override fun onFubClickListener() {
+        passTo(presentationModel.fabAction.consumer)
     }
 }

@@ -8,7 +8,13 @@ interface BottomBarController {
     val fabAlignmentMode: Int
         get() = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
 
-    fun onFubClickListener() = {
+    val showTabs: Boolean
+        get() = false
+
+    fun onFubClickListener() {
         // do nothing
     }
+
+    val showBackButton: Boolean
+        get() = false
 }

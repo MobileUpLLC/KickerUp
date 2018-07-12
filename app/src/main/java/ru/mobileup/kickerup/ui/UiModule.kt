@@ -7,6 +7,7 @@ import ru.mobileup.kickerup.ui.leaderboard.LeaderboardPm
 import ru.mobileup.kickerup.ui.main.MainPm
 import ru.mobileup.kickerup.ui.profile.ProfilePm
 import ru.mobileup.kickerup.ui.splash.SplashPm
+import ru.mobileup.kickerup.ui.startgame.StartGamePm
 
 
 class UiModule: AndroidModule() {
@@ -17,5 +18,6 @@ class UiModule: AndroidModule() {
         provideFactory { SplashPm() }
         provideFactory { LeaderboardPm(get()) }
         provideFactory { ProfilePm(get(), get()) }
+        provideFactory { StartGamePm() }
     }
 }

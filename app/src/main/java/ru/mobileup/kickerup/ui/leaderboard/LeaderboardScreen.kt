@@ -20,6 +20,8 @@ class LeaderboardScreen: Screen<LeaderboardPm>(), RhombusController, BottomBarCo
 
     override val rhombusY: Float = -550f
 
+    override val showTabs: Boolean = true
+
     private val leaderboardAdapter = LeaderboardAdapter(presentationModel.userSelected.consumer::accept)
 
     override fun providePresentationModel(): LeaderboardPm = StandAloneContext.koinContext.get()
@@ -40,5 +42,9 @@ class LeaderboardScreen: Screen<LeaderboardPm>(), RhombusController, BottomBarCo
 
     override fun onBindPresentationModel(view: View, pm: LeaderboardPm) {
         pm.users.observable bindTo { leaderboardAdapter.setItems(it) }
+    }
+
+    override fun onFubClickListener() {
+        passTo(presentationModel.fabAction.consumer)
     }
 }

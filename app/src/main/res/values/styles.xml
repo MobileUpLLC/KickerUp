@@ -18,7 +18,7 @@
 
         <!-- TextView textAppearance used by default -->
         <item name="android:textAppearanceSmall">@style/Text</item>
-        <item name="android:statusBarColor">@color/black_translucent_20</item>
+        <item name="android:statusBarColor">@color/transparent</item>
 
         <!-- New MaterialComponents attributes. -->
         <item name="colorSecondary">?attr/colorPrimary</item>

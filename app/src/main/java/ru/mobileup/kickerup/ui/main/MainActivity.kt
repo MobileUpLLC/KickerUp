@@ -18,6 +18,7 @@ import ru.mobileup.kickerup.ui.common.RhombusController
 import ru.mobileup.kickerup.ui.leaderboard.LeaderboardScreen
 import ru.mobileup.kickerup.ui.profile.ProfileScreen
 import ru.mobileup.kickerup.ui.splash.SplashScreen
+import ru.mobileup.kickerup.ui.startgame.StartGameScreen
 
 class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
 
@@ -55,6 +56,7 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
                 }
             }
         })
+        bottomBar.setNavigationOnClickListener { handleNavigationMessage(Back()) }
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -75,6 +77,7 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
             is ShowAuthScreen -> setPrimary(AuthScreen())
             is ShowLeaderboardScreen -> setPrimary(LeaderboardScreen())
             is ShowProfileScreen -> setPrimary(ProfileScreen())
+            is ShowStartGameScreen -> navTo(StartGameScreen())
         }
 
         return true
@@ -84,8 +87,18 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
         if (!router.back()) {
             finish()
         } else {
-            if (router.last() is RhombusController)
-                attacheRhombusController(router.last() as RhombusController)
+            val screen = router.last()
+
+            if (screen is RhombusController) {
+                attacheRhombusController(screen)
+            }
+            if (screen is BottomBarController) {
+                showBottomBar()
+                attacheBottomBar(screen)
+            } else {
+                hideBottomBar()
+                detachBottomBar()
+            }
         }
     }
 
@@ -128,7 +141,15 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
 
     private fun attacheBottomBar(bottomBarController: BottomBarController) {
         bottomBar.fabAlignmentMode = bottomBarController.fabAlignmentMode
-        fab.setOnClickListener { bottomBarController.onFubClickListener().invoke() }
+        fab.setOnClickListener { bottomBarController.onFubClickListener() }
+
+        if (bottomBarController.showBackButton) {
+            bottomBar.setNavigationIcon(R.drawable.ic_arrow_back_black)
+        } else {
+            bottomBar.navigationIcon = null
+        }
+
+        tabLayout.visible(bottomBarController.showTabs)
     }
 
     private fun detachBottomBar() {

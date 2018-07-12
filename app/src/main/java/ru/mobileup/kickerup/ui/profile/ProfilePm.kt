@@ -5,6 +5,7 @@ import ru.mobileup.kickerup.domain.GetCurrentUserInteractor
 import ru.mobileup.kickerup.domain.GetGamesByUserInteractor
 import ru.mobileup.kickerup.domain.dto.Game
 import ru.mobileup.kickerup.domain.dto.User
+import ru.mobileup.kickerup.ui.ShowStartGameScreen
 import ru.mobileup.kickerup.ui.common.ScreenPm
 import timber.log.Timber
 
@@ -17,6 +18,7 @@ class ProfilePm(
     val user = State<User>()
     val games = State<List<Game>>()
     val logoutClicks = Action<Unit>()
+    val fabAction = Action<Unit>()
 
     override fun onCreate() {
         super.onCreate()
@@ -33,6 +35,10 @@ class ProfilePm(
 
         logoutClicks.observable
             .subscribe { }
+            .untilDestroy()
+
+        fabAction.observable
+            .subscribe { sendNavigationMessage(ShowStartGameScreen()) }
             .untilDestroy()
     }
 }
