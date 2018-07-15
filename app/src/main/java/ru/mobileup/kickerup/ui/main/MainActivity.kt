@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout
 import android.view.View
 import com.bluelinelabs.conductor.Controller
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import me.dmdev.rxpm.navigation.NavigationMessage
 import me.dmdev.rxpm.navigation.NavigationMessageHandler
 import org.koin.standalone.StandAloneContext
@@ -56,7 +57,7 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
                 }
             }
         })
-        bottomBar.setNavigationOnClickListener { handleNavigationMessage(Back()) }
+        bottomBar.bottomToolbar.setNavigationOnClickListener { handleNavigationMessage(Back()) }
 
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -144,11 +145,12 @@ class MainActivity : BasePmActivity<MainPm>(), NavigationMessageHandler {
         fab.setOnClickListener { bottomBarController.onFubClickListener() }
 
         if (bottomBarController.showBackButton) {
-            bottomBar.setNavigationIcon(R.drawable.ic_arrow_back_black)
+            bottomToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black)
         } else {
-            bottomBar.navigationIcon = null
+            bottomToolbar.navigationIcon = null
         }
 
+        bottomToolbar.visible(bottomBarController.showBackButton)
         tabLayout.visible(bottomBarController.showTabs)
     }
 
