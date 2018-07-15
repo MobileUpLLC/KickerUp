@@ -18,4 +18,11 @@
     <string name="profile_points">Баллов</string>
     <string name="profile_games">Игр</string>
     <string name="profile_goals">Голов</string>
+    <string name="screen_start_game_first_command">Команда 1</string>
+    <string name="screen_start_game_second_command">Команда 2</string>
+    <string name="screen_start_game_title">Гоу?</string>
+    <string name="screen_start_game_player_1">1</string>
+    <string name="screen_start_game_player_2">2</string>
+    <string name="screen_start_game_player_3">3</string>
+    <string name="screen_start_game_player_4">4</string>
 </resources>
